@@ -1,11 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="400dp"
+    android:layout_height="250dp"
     android:background="@color/grey_200">
 
-    <!-- TODO 01. Define the layout for the MainActivity here. -->
-    <!-- NOTE: Remember that in order to include some GUI components you will have to use the Material library -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/ChipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp">
 
+        <com.google.android.material.chip.Chip
+            android:id="@+id/Scan"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:text="Scan"
+            android:textColor="@android:color/white"
+            app:chipBackgroundColor="#3F51B5"
+            app:chipIcon="@drawable/ic_center_focus_weak_chip" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/Top_Up"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="Top Up"
+            android:textColor="#EAE4E4"
+            app:chipBackgroundColor="#3F51B5"
+            app:chipIcon="@drawable/ic_add_circle_outline_chip" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/Send"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:textColor="#EDE9E9"
+            app:chipBackgroundColor="#3F51B5"
+            app:chipIcon="@drawable/ic_open_in_new_chip" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/Request"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Request"
+            android:textColor="#FDFAFA"
+            app:chipBackgroundColor="#3F51B5"
+            app:chipIcon="@drawable/ic_open_in_new_rotated_chip" />
+
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="210dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Pulsa_Data"
+                android:layout_width="355dp"
+                android:layout_height="160dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="25dp">
+
+                <TextView
+                    android:id="@+id/cardTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="Pulsa Data"
+                    android:textSize="14sp"
+                    android:layout_gravity="start|center_vertical"/>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </com.google.android.material.chip.ChipGroup>
 </ScrollView>
