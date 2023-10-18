@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.CompoundButton;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.button.MaterialButton;
@@ -16,7 +18,46 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO 02. Create a new method called "calculateTotal" for calculating the invoice's total amount of money
 
+
+private void calculateTotal() {
+    double total = 0;
+
+    CheckBox checkBox1 = findViewById(R.id.checkBox1);
+    CheckBox checkBox2 = findViewById(R.id.checkBox2);
+    CheckBox checkBox3 = findViewById(R.id.checkBox3);
+    CheckBox checkBox4 = findViewById(R.id.checkBox4);
+
+    EditText editTextNumberDecimal1 = findViewById(R.id.editTextNumberDecimal1);
+    EditText editTextNumberDecimal2 = findViewById(R.id.editTextNumberDecimal2);
+    EditText editTextNumberDecimal3 = findViewById(R.id.editTextNumberDecimal3);
+    EditText editTextNumberDecimal4 = findViewById(R.id.editTextNumberDecimal4);
+
+    if (checkBox1.isChecked()) {
+        total += Double.parseDouble(editTextNumberDecimal1.getText().toString());
+    }
+    if (checkBox2.isChecked()) {
+        total += Double.parseDouble(editTextNumberDecimal2.getText().toString());
+    }
+    if (checkBox3.isChecked()) {
+        total += Double.parseDouble(editTextNumberDecimal3.getText().toString());
+    }
+    if (checkBox4.isChecked()) {
+        total += Double.parseDouble(editTextNumberDecimal4.getText().toString());
+    }
+    // to add Discount for 20% if the discount toggle button is selected
+    MaterialButtonToggleGroup materialButtonToggleGroup = findViewById(R.id.materialButtonToggleGroup);
+    int checkedButtonId = materialButtonToggleGroup.getCheckedButtonId();
+    if (checkedButtonId == R.id.toggleButtonDiscount) {
+        total *= 0.8;
+    }
+    // total amount
+    EditText editTextNumberDecimalTotal = findViewById(R.id.editTextNumberDecimalTotal);
+    editTextNumberDecimalTotal.setText(String.format("$ %.2f", total));
+    }
     // TODO 03. Bind the "calculateTotal" method to the button with the "CALCULATE TOTAL" label
+
+
+
 
     private ActivityMainBinding mBinding;
 
@@ -41,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        MaterialButtonToggleGroup materialButtonToggleGroup2 = findViewById(R.id.materialButtonToggleGroup2);
+        MaterialButton toggleButtonCalculate = findViewById(R.id.toggleButtonCalculate);
+        toggleButtonCalculate.setOnClickListener(v -> {
+            calculateTotal();
+        });
 
     }
 }
