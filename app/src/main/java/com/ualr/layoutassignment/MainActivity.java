@@ -1,9 +1,11 @@
 package com.ualr.layoutassignment;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.TextAppearanceInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
     // TODO 02. Create a new method called "calculateTotal" for calculating the invoice's total amount of money
 
 double discountpercent=1.00;
-private void calculateTotal() {
+    private TextAppearanceInfo.Builder materialButton;
+    private TextAppearanceInfo.Builder toggleButtonDiscount;
+
+    private void calculateTotal() {
     double total = 0;
 
     CheckBox checkBox1 = findViewById(R.id.checkBox1);
@@ -57,6 +62,7 @@ private void calculateTotal() {
 
     private ActivityMainBinding mBinding;
 
+    @RequiresApi(api = 34)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
