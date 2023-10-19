@@ -24,7 +24,7 @@
             android:layout_marginLeft="10dp"
             android:text="Scan"
             android:textColor="@android:color/white"
-            app:chipBackgroundColor="#2196F3"
+            app:chipBackgroundColor="@color/colorPrimaryDark"
             app:chipIcon="@drawable/ic_center_focus_weak_chip" />
 
         <com.google.android.material.chip.Chip
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="Top Up"
             android:textColor="#EAE4E4"
-            app:chipBackgroundColor="#2196F3"
+            app:chipBackgroundColor="@color/colorPrimaryDark"
             app:chipIcon="@drawable/ic_add_circle_outline_chip" />
 
         <com.google.android.material.chip.Chip
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:text="Send"
             android:textColor="#EDE9E9"
-            app:chipBackgroundColor="#2196F3"
+            app:chipBackgroundColor="@color/colorPrimaryDark"
             app:chipIcon="@drawable/ic_open_in_new_chip" />
 
         <com.google.android.material.chip.Chip
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:text="Request"
             android:textColor="#FDFAFA"
-            app:chipBackgroundColor="#2196F3"
+            app:chipBackgroundColor="@color/colorPrimaryDark"
             app:chipIcon="@drawable/ic_open_in_new_rotated_chip" />
 
     </com.google.android.material.chip.ChipGroup>
@@ -112,7 +112,7 @@
             android:paddingRight="20dp"
             android:text="Buy now"
             android:textSize="10sp"
-            app:backgroundTint="#2196F3" />
+            app:backgroundTint="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/lightBulbImg"
@@ -212,7 +212,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ChipGroup"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51">
+        app:layout_constraintVertical_bias="0.51"
+        style="@style/CardView.White">
 
 
         <TextView
@@ -240,7 +241,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ChipGroup"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51">
+        app:layout_constraintVertical_bias="0.51"
+        >
 
 
 
@@ -250,29 +252,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product 01"
+            android:textColor="@color/grey_80"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            style="@style/CheckBox.Blue"/>
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product 02"
+            android:textColor="@color/grey_80"
             android:layout_marginTop="55dp"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            style="@style/CheckBox.Blue"/>
         <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product 03"
+            android:textColor="@color/grey_80"
             android:layout_marginTop="105dp"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            style="@style/CheckBox.Blue"/>
         <CheckBox
             android:id="@+id/checkBox4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product 04"
+            android:textColor="@color/grey_80"
             android:layout_marginTop="155dp"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            style="@style/CheckBox.Blue"/>
 
         <TextView
             android:id="@+id/dollarText1"
@@ -308,7 +318,8 @@
                 android:ems="10"
                 android:hint="00.00"
                 android:inputType="numberDecimal"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="TouchTargetSizeCheck"
+                style="@style/EditText.Blue"/>
 
 
         </androidx.cardview.widget.CardView>
@@ -430,7 +441,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/materialButtonToggleGroup"
+        android:id="@+id/DiscountGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -469,7 +480,7 @@
 
 
     <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/materialButtonToggleGroup2"
+        android:id="@+id/CalculateGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="-181dp"

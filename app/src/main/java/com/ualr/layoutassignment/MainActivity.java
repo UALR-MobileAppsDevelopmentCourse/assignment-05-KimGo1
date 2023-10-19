@@ -2,23 +2,21 @@ package com.ualr.layoutassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.CompoundButton;
+import android.widget.Toast;
+
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.button.MaterialButton;
-
 import com.ualr.layoutassignment.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     // TODO 02. Create a new method called "calculateTotal" for calculating the invoice's total amount of money
 
-
+double discountpercent=1.00;
 private void calculateTotal() {
     double total = 0;
 
@@ -44,12 +42,10 @@ private void calculateTotal() {
     if (checkBox4.isChecked()) {
         total += Double.parseDouble(editTextNumberDecimal4.getText().toString());
     }
-    // to add Discount for 20% if the discount toggle button is selected
-    MaterialButtonToggleGroup materialButtonToggleGroup = findViewById(R.id.materialButtonToggleGroup);
-    int checkedButtonId = materialButtonToggleGroup.getCheckedButtonId();
-    if (checkedButtonId == R.id.toggleButtonDiscount) {
-        total *= 0.8;
-    }
+
+        total *= discountpercent ; // Applying 20% discount
+
+
     // total amount
     EditText editTextNumberDecimalTotal = findViewById(R.id.editTextNumberDecimalTotal);
     editTextNumberDecimalTotal.setText(String.format("$ %.2f", total));
@@ -68,21 +64,23 @@ private void calculateTotal() {
         View view = mBinding.getRoot();
         setContentView(view);
 
-        MaterialButtonToggleGroup materialButtonToggleGroup = findViewById(R.id.materialButtonToggleGroup);
+        MaterialButtonToggleGroup materialButtonToggleGroup = findViewById(R.id.DiscountGroup);
 
         materialButtonToggleGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
             if (checkedId == R.id.toggleButtonNoDiscount && isChecked) {
 
                 materialButtonToggleGroup.check(R.id.toggleButtonNoDiscount);
                 materialButtonToggleGroup.uncheck(R.id.toggleButtonDiscount);
+                discountpercent = 1.00;
             } else if (checkedId == R.id.toggleButtonDiscount && isChecked) {
                 // Set your desired text for the buttons, including the discount
                 materialButtonToggleGroup.check(R.id.toggleButtonDiscount);
                 materialButtonToggleGroup.uncheck(R.id.toggleButtonNoDiscount);
+                discountpercent = 0.80;
             }
         });
 
-        MaterialButtonToggleGroup materialButtonToggleGroup2 = findViewById(R.id.materialButtonToggleGroup2);
+        MaterialButtonToggleGroup CalculateGroup = findViewById(R.id.CalculateGroup);
         MaterialButton toggleButtonCalculate = findViewById(R.id.toggleButtonCalculate);
         toggleButtonCalculate.setOnClickListener(v -> {
             calculateTotal();
